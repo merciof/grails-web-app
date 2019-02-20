@@ -1809,6 +1809,10 @@ var FeelingReportComponent = /** @class */ (function () {
     };
     // events
     FeelingReportComponent.prototype.chartClicked = function (e) {
+        var _this = this;
+        this.userService.listStudents().subscribe(function (user) { return user.map(function (user) {
+            _this.feelings.push(user.feeling);
+        }); });
         for (var i = 0; i < this.feelings.length; i = i + 1) {
             if (this.feelings[i] === 'Happy') {
                 this.happyCount = this.happyCount + 1;
